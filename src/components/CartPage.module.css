@@ -1,0 +1,64 @@
+.header {
+  padding: 3rem;
+  background: #eaded7;
+  color: brown;
+  font-size: 1.5rem;
+}
+.header .headerProducts {
+  color: #641e1e;
+}
+.cartItems {
+  margin: 2rem auto;
+}
+.titles {
+  display: grid;
+  grid-template-columns: 3fr 2fr 2fr 2fr 0.7fr;
+  margin: 0 5%;
+  text-align: center;
+}
+.items {
+  display: grid;
+  grid-template-columns: 3fr 2fr 2fr 2fr 0.7fr;
+  margin: 0 5%;
+  text-align: center;
+  align-items: center;
+  padding: 1rem 0;
+}
+.items img {
+  width: 113px;
+  height: 76px;
+  object-fit: cover;
+}
+.item {
+  display: flex;
+  align-items: center;
+}
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 5%;
+}
+.loginTotal {
+  display: grid;
+  grid-template-columns: 7fr 4fr;
+  padding: 3rem;
+}
+.total {
+  grid-column: 2/3;
+  border: 1px solid black;
+padding: 1rem;
+margin-bottom: 1rem;
+}
+.action {
+  grid-column: 2/3;
+  padding: 5px 0;
+}
+.carttotal {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+
+}
+
+.total > *{
+}

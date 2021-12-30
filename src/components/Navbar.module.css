@@ -1,0 +1,49 @@
+:root {
+  --maxiwidth: 1170ppx;
+}
+.nav {
+  height: 5rem;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+
+.nav,
+.main {
+  width: 90vw;
+  margin: 0px auto;
+  max-width: var(--max-width);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.7fr 1fr 1.2fr;
+}
+@media (min-width: 992px) {
+  .nav,
+  .main {
+    display: grid;
+    /* grid-template-columns: auto 1fr auto; */
+    -webkit-box-align: center;
+    align-items: center;
+  }
+}
+
+.logo {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+.pageLinks {
+  grid-column: 3/4;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cart {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  grid-column: 5/6;
+}

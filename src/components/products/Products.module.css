@@ -1,0 +1,54 @@
+.header {
+  padding: 3rem;
+  background: #eaded7;
+  color: brown;
+  font-size: 1.5rem;
+}
+.header .headerProducts {
+  color: #641e1e;
+}
+.sortingsDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+.line {
+  border: 1px solid #9b6b6b;
+  width: 51%;
+}
+.filtersProducts {
+  display: flex;
+  width: 95%;
+  margin: 2rem auto;
+}
+.fiters {
+  width: 20%;
+}
+.sortingProducts {
+  width: 89%;
+}
+.products {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem 1.5rem;
+}
+.products img {
+  width: 278px;
+  object-fit: cover;
+  height: 208px;
+}
+.namePrice {
+  display: flex;
+  justify-content: space-between;
+}
+.price {
+  color: rgb(160, 89, 77);
+}
+.filters > *{
+  margin: 15px 0;
+}
+.category > *{
+  margin: 10px 0;
+
+}

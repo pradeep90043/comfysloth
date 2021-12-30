@@ -1,0 +1,32 @@
+.mainJoin {
+  margin: 3rem 0;
+}
+.descriptionEmail {
+  display: flex;
+  justify-content: space-between;
+}
+.descriptionEmail button {
+  border: none;
+  padding: 10px;
+  background: #ab7a5f;
+}
+.descriptionEmail input {
+  border: none;
+  padding: 9px;
+}
+.emailbtn {
+  border: 1px solid black;
+}
+.descriptionEmail p {
+  width: 55%;
+}
+.footter {
+  text-align: center;
+  background-color: rgb(29, 13, 13);
+  color: white;
+
+  padding: 1.8rem 0;
+}
+.footter .name {
+  color: #ab7a5f;
+}

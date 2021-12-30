@@ -1,0 +1,27 @@
+.main {
+  margin: auto;
+}
+.main img {
+  height: 520px;
+  width: 100%;
+  margin: 2rem;
+}
+.imgDesc {
+  display: flex;
+}
+.description {
+  padding: 2rem;
+  margin-left: 6rem;
+}
+.header {
+  padding: 3rem;
+  background: #eaded7;
+  color: brown;
+  font-size: 1.5rem;
+}
+.header .about {
+  color: #641e1e;
+}
+.description p {
+  margin-top: 3rem;
+}
