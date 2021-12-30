@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import classes from "./FeaturedProducts.module.css";
 
 const dummy_data = [
@@ -39,9 +40,9 @@ const FeaturedProducts = () => {
           );
         })}
       </div>
-      {/* <div > */}
-      <button className={classes.actions}>All Products</button>
-      {/* </div> */}
+      <Link to="/products">
+        <button className={classes.actions}>All Products</button>
+      </Link>
     </div>
   );
 };

@@ -5,9 +5,10 @@ import CartIcon from "./CartIcon";
 const Cart = () => {
   return (
     <>
-      <div className={classes.cartIcon}>
-        <span>
-          <span>Your cart</span> <CartIcon />
+      <div>
+        <span className={classes.cart}>
+          <span>Cart</span> <CartIcon />
+          <span className={classes.cartAmount}>1</span>
         </span>
       </div>
     </>

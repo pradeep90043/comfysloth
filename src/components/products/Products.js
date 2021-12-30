@@ -17,6 +17,7 @@ const Products = () => {
         </h2>
       </div>
       <div className={classes.filtersProducts}>
+          
         {/* Filters*/}
 
         <div className={classes.filters}>

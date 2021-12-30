@@ -16,7 +16,7 @@
   margin: 0px auto;
   max-width: var(--max-width);
   display: grid;
-  grid-template-columns: 1fr 1fr 1.7fr 1fr 1.2fr;
+  grid-template-columns: 1fr 1fr 1.7fr 1fr 1.4fr;
 }
 @media (min-width: 992px) {
   .nav,
@@ -46,4 +46,8 @@
   display: flex;
   justify-content: space-between;
   grid-column: 5/6;
+}
+.logIn{
+    display: flex;
+    font-size: 1.2rem;
 }

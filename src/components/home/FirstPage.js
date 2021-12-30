@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import classes from "./FirstPage.module.css";
 
 const FirstPage = () => {
@@ -13,7 +14,9 @@ const FirstPage = () => {
             aperiam odio ducimus, obcaecati libero et quia tempora excepturi
             quis alias?
           </p>
-          <button className={classes.actions}>SHOP NOW</button>
+          <Link to="/products">
+            <button className={classes.actions}>SHOP NOW</button>
+          </Link>
         </div>
         <div className={classes.secFirstImg}>
           <img

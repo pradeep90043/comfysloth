@@ -50,8 +50,8 @@ const CartPage = () => {
       </div>
       <hr />
       <div className={classes.actions}>
-        <button>Continue Shopping</button>
-        <button>Clear Cart</button>
+        <button className="actionBtn" >Continue Shopping</button>
+        <button className="actionBtn" style={{background:"black"}} >Clear Cart</button>
       </div>
       <div className={classes.loginTotal}>
         <div className={classes.total}>

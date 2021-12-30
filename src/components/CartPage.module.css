@@ -46,19 +46,27 @@
 .total {
   grid-column: 2/3;
   border: 1px solid black;
-padding: 1rem;
-margin-bottom: 1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
 }
 .action {
   grid-column: 2/3;
-  padding: 5px 0;
+  padding: 7px 0;
+  color: white;
+  background-color: #ab7a5f;
+  border: none;
+  border-radius: 3px;
 }
 .carttotal {
   display: flex;
   justify-content: space-between;
   padding: 12px 0;
-
 }
-
-.total > *{
+.quantity {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+.quantity button {
+  padding: 2px 10px;
 }

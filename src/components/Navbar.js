@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Cart from "./Cart/Cart";
 import classes from "./Navbar.module.css";
 import LogInIcon from "../components/Cart/LogInIcon";
@@ -9,12 +9,12 @@ const Navbar = () => {
   return (
     <nav className={classes.nav}>
       <div className={classes.main}>
-        <div className={classes.logo}>
+        <NavLink to="/" className={classes.logo}>
           <img
             src="https://react-course-comfy-sloth-store.netlify.app/static/media/logo.221f6b13.svg"
             alt="logo"
           />
-        </div>
+        </NavLink>
         <div className={classes.pageLinks}>
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
@@ -24,10 +24,10 @@ const Navbar = () => {
           <Link to="/cart">
             <Cart />
           </Link>
-          <span>
+          <Link to="/name" className={classes.logIn} >
             <span>Log In</span>
             <LogInIcon />
-          </span>
+          </Link>
         </div>
         <div className={classes.logIn}></div>
       </div>

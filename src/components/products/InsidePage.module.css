@@ -1,0 +1,50 @@
+.header {
+  padding: 3rem;
+  background: #eaded7;
+  color: brown;
+  font-size: 1.5rem;
+}
+.header .headerProductName {
+  color: #641e1e;
+}
+.smallImgs {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+.smallImgs > img {
+  width: 100%;
+  height: 75px;
+  object-fit: cover;
+  padding: 2px;
+  border-radius: 6px;
+}
+.goBack {
+  margin: 3rem 2%;
+}
+.imgDescription {
+  margin: 1rem 2%;
+  display: flex;
+  gap: 29px;
+}
+.mainImg {
+  width: 500px;
+  height: 500px;
+  object-fit: cover;
+}
+.desceription > * {
+  margin: 1.5rem;
+}
+.separate {
+  display: grid;
+  width: 64%;
+  grid-template-columns: 1fr 1fr;
+}
+.addRemove {
+  font-size: 2.2rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.addRemove button {
+  padding: 9px;
+}

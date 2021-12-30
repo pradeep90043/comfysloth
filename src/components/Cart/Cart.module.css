@@ -1,0 +1,10 @@
+.cart{
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+}
+.cartAmount{
+    padding: 2px;
+    background-color: rgb(243, 144, 73);
+    border-radius: 50%;
+}
