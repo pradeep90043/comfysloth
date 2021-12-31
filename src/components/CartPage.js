@@ -53,6 +53,9 @@ const CartPage = () => {
         <button className="actionBtn" >Continue Shopping</button>
         <button className="actionBtn" style={{background:"black"}} >Clear Cart</button>
       </div>
+
+                                {/* total box     */}
+                                
       <div className={classes.loginTotal}>
         <div className={classes.total}>
           <div className={classes.carttotal}>

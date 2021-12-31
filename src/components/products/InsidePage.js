@@ -5,8 +5,11 @@ import { AiOutlineStar } from "react-icons/ai";
 import { FaStarHalfAlt } from "react-icons/fa";
 import { BsFillCircleFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import {  useSelector } from "react-redux";
 
 const InsidePage = () => {
+  const insideState = useSelector((state) =>  state.cartUpdate)
+  console.log(insideState);
   return (
     <div>
       <div className={classes.header}>
@@ -23,13 +26,13 @@ const InsidePage = () => {
       <div className={classes.imgDescription}>
         <div className={classes.images}>
           <img
-            src="https://dl.airtable.com/.attachments/7e3a7ce2ef8e11da40f1b6617e4885e3/565bf916/product-7.jpg"
+            src="{insideState.img}"
             alt="name"
             className={classes.mainImg}
           />
           <div className={classes.smallImgs}>
             <img
-              src="https://dl.airtable.com/.attachments/7e3a7ce2ef8e11da40f1b6617e4885e3/565bf916/product-7.jpg"
+              src="{insideState.img}"
               alt="name"
             />
             <img
@@ -88,7 +91,7 @@ const InsidePage = () => {
               <BsFillCircleFill />
             </p>
           </div>
-          <div className={classes.addRemove} >
+          <div className={classes.addRemove}>
             <button className={classes.change}>-</button>
             <span className={classes.amount}>1</span>
             <button className={classes.change}>+</button>

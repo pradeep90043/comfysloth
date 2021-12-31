@@ -4,11 +4,15 @@ import { GrAppsRounded } from "react-icons/gr";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaSortDown } from "react-icons/fa";
 import { BsFillCircleFill } from "react-icons/bs";
-
+import { Add } from "../../actions/index";
+import { useDispatch } from "react-redux";
 import dummy_data from "../../APi";
 import Slider from "../../UI/Slider";
+import { NavLink } from "react-router-dom";
+
 
 const Products = () => {
+  const dispatch = useDispatch();
   return (
     <div>
       <div className={classes.header}>
@@ -17,7 +21,6 @@ const Products = () => {
         </h2>
       </div>
       <div className={classes.filtersProducts}>
-          
         {/* Filters*/}
 
         <div className={classes.filters}>
@@ -75,11 +78,16 @@ const Products = () => {
           </div>
 
           {/* products */}
+
           <div className={classes.products}>
             {dummy_data.map((product) => {
               return (
                 <div className={classes.cart} key={product.id}>
-                  <img src={product.img} alt={product.name} />
+                    <button onClick={() => dispatch(Add(product))}>
+                  <NavLink to="/name">
+                      <img src={product.img} alt={product.name} />
+                  </NavLink>
+                    </button>
                   <div className={classes.namePrice}>
                     <p>{product.name}</p>
                     <p className={classes.price}>{product.price}</p>
