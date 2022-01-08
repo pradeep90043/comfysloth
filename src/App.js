@@ -7,8 +7,9 @@ import Home from "./components/home/Home";
 import Navbar from "./components/Navbar";
 import InsidePage from "./components/products/InsidePage";
 import Products from "./components/products/Products";
-
+import { useAuth0 } from "@auth0/auth0-react";
 function App() {
+  const { user } = useAuth0();
   return (
     <div>
       <Navbar />

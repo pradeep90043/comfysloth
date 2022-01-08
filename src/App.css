@@ -5,3 +5,9 @@
   border: none;
   border-radius: 3px;
 }
+.price{
+  color: rgb(160, 89, 77);
+}
+.underline{
+  text-decoration: underline;
+}

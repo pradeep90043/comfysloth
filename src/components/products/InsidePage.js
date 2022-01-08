@@ -1,21 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "./InsidePage.module.css";
 import { AiFillStar } from "react-icons/ai";
 import { AiOutlineStar } from "react-icons/ai";
 import { FaStarHalfAlt } from "react-icons/fa";
 import { BsFillCircleFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import {  useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { AddToCart } from "../../actions";
 
 const InsidePage = () => {
-  const insideState = useSelector((state) =>  state.cartUpdate)
-  console.log(insideState);
+  const insideState = useSelector((state) => state.cartUpdate.currentProduct);
+  const dispatch = useDispatch();
+  const [ quantity, setQuantity ] = useState(1)
+
   return (
     <div>
       <div className={classes.header}>
         <h2>
           Home / <span className={classes.headerProductName}>Products</span>
-          <span className={classes.headerProductName}>/ Name</span>
+          <span className={classes.headerProductName}>
+            {" "}
+            / {insideState.name}
+          </span>
         </h2>
       </div>
       <div className={classes.goBack}>
@@ -26,15 +32,12 @@ const InsidePage = () => {
       <div className={classes.imgDescription}>
         <div className={classes.images}>
           <img
-            src="{insideState.img}"
-            alt="name"
+            src={insideState.img}
+            alt={insideState.name}
             className={classes.mainImg}
           />
           <div className={classes.smallImgs}>
-            <img
-              src="{insideState.img}"
-              alt="name"
-            />
+            <img src={insideState.img} alt={insideState.name} />
             <img
               src="	https://dl.airtable.com/.attachments/f15406a7d5734462ccbe033523ab44f2/36f645ba/extra-1.jpeg"
               alt="name"
@@ -54,7 +57,7 @@ const InsidePage = () => {
           </div>
         </div>
         <div className={classes.desceription}>
-          <h2>Modern Bookshelf</h2>
+          <h2>{insideState.name}</h2>
           <p>
             <AiFillStar style={{ color: "#c1c11c" }} />
             <AiFillStar style={{ color: "#c1c11c" }} />
@@ -63,7 +66,7 @@ const InsidePage = () => {
             <AiOutlineStar style={{ color: "#c1c11c" }} />{" "}
             <span>(100 customer reviews)</span>
           </p>
-          <p>$30.99</p>
+          <p className="price" >${insideState.price}</p>
           <p>
             Cloud bread VHS hell of banjo bicycle rights jianbing umami
             mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher
@@ -92,11 +95,18 @@ const InsidePage = () => {
             </p>
           </div>
           <div className={classes.addRemove}>
-            <button className={classes.change}>-</button>
-            <span className={classes.amount}>1</span>
-            <button className={classes.change}>+</button>
+            <button className={classes.change} onClick={()=>setQuantity(quantity-1)} >-</button>
+            <span className={classes.amount}>{quantity}</span>
+            <button className={classes.change} onClick={()=>setQuantity(quantity+1)} >+</button>
           </div>
-          <button className="actionBtn">ADD TO CART</button>
+          <Link to="/cart">
+            <button
+              className="actionBtn"
+              onClick={() => dispatch(AddToCart({...insideState, quantity}))}
+            >
+              ADD TO CART
+            </button>
+          </Link>
         </div>
       </div>
     </div>

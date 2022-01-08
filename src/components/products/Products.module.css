@@ -33,7 +33,7 @@
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem 1.5rem;
 }
-.products img {
+.images {
   width: 278px;
   object-fit: cover;
   height: 208px;
@@ -50,5 +50,21 @@
 }
 .category > *{
   margin: 10px 0;
+
+}
+/* .category :hover{
+  color: #0a365a;
+  cursor: pointer;
+} */
+.category :visited{
+  text-decoration: underline;
+}
+.cart{
+  display: flex;
+  gap: 1.4rem;
+  margin-bottom:1.3rem ;
+}
+.about > * {
+  margin-bottom:1rem ;
 
 }

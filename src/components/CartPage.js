@@ -1,9 +1,16 @@
 import React from "react";
 import classes from "./CartPage.module.css";
-import { BsSquareFill } from "react-icons/bs";
-import { MdDelete } from "react-icons/md";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import AvailableItems from "./AvailableItems";
+import { Clear } from "../actions/index";
 
 const CartPage = () => {
+  const dispatch = useDispatch()
+  const cartState = useSelector((state) => state.cartUpdate.cartItems);
+  console.log(cartState);
+ const subOrderTotal = useSelector((state) => state.cartUpdate.totalPrice)
+  const orderTotal = 5.35 + subOrderTotal
   return (
     <div>
       <div className={classes.header}>
@@ -20,56 +27,35 @@ const CartPage = () => {
         </div>
         <hr />
       </div>
-      <div className={classes.items}>
-        <div className={classes.item}>
-          <img
-            src="https://dl.airtable.com/.attachmentThumbnails/89ba7458c24252be77f5a835dd398880/c13ef359"
-            alt="g"
-          />
-          <div className={classes.nameColor}>
-            <p>Moder Poster</p>
-            <p>
-              Color : <BsSquareFill style={{ color: "blue" }} />{" "}
-            </p>
-          </div>
-        </div>
-        <div className={classes.price}>
-          <p>$30.99</p>
-        </div>
-        <div className={classes.quantity}>
-          <button>-</button>
-          <span>1</span>
-          <button>+</button>
-        </div>
-        <div className={classes.subtotal}>
-          <p>$30.99</p>
-        </div>
-        <div className={classes.delete}>
-          <MdDelete style={{ color: "white", background: "red" }} />
-        </div>
-      </div>
+      {cartState.map((item) => {
+        return <AvailableItems item={item}  />;
+      })}
       <hr />
       <div className={classes.actions}>
-        <button className="actionBtn" >Continue Shopping</button>
-        <button className="actionBtn" style={{background:"black"}} >Clear Cart</button>
+        <Link to="/products">
+          <button className="actionBtn">Continue Shopping</button>
+        </Link>
+        <button className="actionBtn" style={{ background: "black" } } onClick={()=>dispatch(Clear())}  >
+          Clear Cart
+        </button>
       </div>
 
-                                {/* total box     */}
-                                
+      {/* total box     */}
+
       <div className={classes.loginTotal}>
         <div className={classes.total}>
           <div className={classes.carttotal}>
             <p>Subtotal : </p>
-            <p>$156.98</p>
+            <p className="price" >$ {subOrderTotal.toFixed(2)}</p>
           </div>
           <div className={classes.carttotal}>
             <p>Shipping Fee : </p>
-            <p>$5.34</p>
+            <p className="price">$5.34</p>
           </div>
           <hr />
           <div className={classes.carttotal}>
             <p>Order Total :</p>
-            <p>$162.32</p>
+            <p className="price" >$ {orderTotal.toFixed(2)} </p>
           </div>
         </div>
         <button className={classes.action}>LOGIN</button>

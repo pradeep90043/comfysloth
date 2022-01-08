@@ -3,8 +3,13 @@ import { Link, NavLink } from "react-router-dom";
 import Cart from "./Cart/Cart";
 import classes from "./Navbar.module.css";
 import LogInIcon from "../components/Cart/LogInIcon";
+import { useAuth0 } from "@auth0/auth0-react";
+import { RiLogoutBoxRFill } from "react-icons/ri";
+
 
 const Navbar = () => {
+  const { loginWithRedirect , isAuthenticated ,logout} = useAuth0();
+
   console.log("hello");
   return (
     <nav className={classes.nav}>
@@ -24,10 +29,13 @@ const Navbar = () => {
           <Link to="/cart">
             <Cart />
           </Link>
-          <Link to="/name" className={classes.logIn} >
+         { ! isAuthenticated ? <div onClick={()=>loginWithRedirect()} className={classes.logIn} >
             <span>Log In</span>
             <LogInIcon />
-          </Link>
+          </div> : <div onClick={()=>logout()} className={classes.logIn} >
+            <span>Log Out</span>
+            <RiLogoutBoxRFill />
+          </div> }
         </div>
         <div className={classes.logIn}></div>
       </div>
