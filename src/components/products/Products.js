@@ -18,7 +18,7 @@ const Products = () => {
 
 
   });
-  // const [underline, setUndeline] = useState();
+  const [underline, setUndeline] = useState();
   const [productsInRow, setProductsInRow] = useState(false);
   const dispatch = useDispatch();
 
