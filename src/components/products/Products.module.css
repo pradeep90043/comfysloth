@@ -52,10 +52,11 @@
   margin: 10px 0;
 
 }
-/* .category :hover{
+.category :hover{
   color: #0a365a;
   cursor: pointer;
-} */
+  font-size: 1.05rem;
+}
 .category :visited{
   text-decoration: underline;
 }

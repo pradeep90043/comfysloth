@@ -4,6 +4,8 @@ import { BsSquareFill } from "react-icons/bs";
 import { MdDelete } from "react-icons/md";
 import { useDispatch } from "react-redux";
 import { AddToCart } from "../actions";
+import { Remove } from "../actions";
+
 
 const AvailableItems = ({ item }) => {
   const [quantity, setQuantity] = useState(item.quantity);
@@ -29,8 +31,8 @@ dispatch(AddToCart({...item, quantity: -1}))
           <img src={item.img} alt={item.name} />
           <div className={classes.nameColor}>
             <p>{item.name}</p>
-            <p>
-              Color : <BsSquareFill style={{ color: "blue" }} />{" "}
+            <p className={classes.color} >
+              Color : <BsSquareFill style={{ color: item.color }} />{" "}
             </p>
           </div>
         </div>
@@ -38,15 +40,15 @@ dispatch(AddToCart({...item, quantity: -1}))
           <p>{item.price}</p>
         </div>
         <div className={classes.quantity}>
-          <button onClick={decrement}>-</button>
+          <span onClick={decrement}>-</span>
           <span>{quantity}</span>
-          <button onClick={increment}>+</button>
+          <span onClick={increment}>+</span>
         </div>
         <div className={classes.subtotal}>
           <p className="price">$ {totalPrice.toFixed(2)}</p>
         </div>
         <div className={classes.delete}>
-          <MdDelete style={{ color: "white", background: "red" }} />
+          <MdDelete className={classes.deleteBtn}  onClick={()=>dispatch(Remove(item.id))} />
         </div>
       </div>
     </>

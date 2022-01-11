@@ -4,13 +4,15 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import AvailableItems from "./AvailableItems";
 import { Clear } from "../actions/index";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const CartPage = () => {
-  const dispatch = useDispatch()
+  const { loginWithRedirect, isAuthenticated, logout, user } = useAuth0();
+  const dispatch = useDispatch();
   const cartState = useSelector((state) => state.cartUpdate.cartItems);
   console.log(cartState);
- const subOrderTotal = useSelector((state) => state.cartUpdate.totalPrice)
-  const orderTotal = 5.35 + subOrderTotal
+  const subOrderTotal = useSelector((state) => state.cartUpdate.totalPrice);
+  const orderTotal = 5.35 + subOrderTotal;
   return (
     <div>
       <div className={classes.header}>
@@ -28,14 +30,18 @@ const CartPage = () => {
         <hr />
       </div>
       {cartState.map((item) => {
-        return <AvailableItems item={item}  />;
+        return <AvailableItems item={item} key={item.id} />;
       })}
       <hr />
       <div className={classes.actions}>
         <Link to="/products">
           <button className="actionBtn">Continue Shopping</button>
         </Link>
-        <button className="actionBtn" style={{ background: "black" } } onClick={()=>dispatch(Clear())}  >
+        <button
+          className="actionBtn"
+          style={{ background: "black" }}
+          onClick={() => dispatch(Clear())}
+        >
           Clear Cart
         </button>
       </div>
@@ -46,7 +52,7 @@ const CartPage = () => {
         <div className={classes.total}>
           <div className={classes.carttotal}>
             <p>Subtotal : </p>
-            <p className="price" >$ {subOrderTotal.toFixed(2)}</p>
+            <p className="price">$ {subOrderTotal.toFixed(2)}</p>
           </div>
           <div className={classes.carttotal}>
             <p>Shipping Fee : </p>
@@ -55,10 +61,21 @@ const CartPage = () => {
           <hr />
           <div className={classes.carttotal}>
             <p>Order Total :</p>
-            <p className="price" >$ {orderTotal.toFixed(2)} </p>
+            <p className="price">$ {orderTotal.toFixed(2)} </p>
           </div>
         </div>
-        <button className={classes.action}>LOGIN</button>
+        {!isAuthenticated ? (
+          <button
+            className={classes.action}
+            onClick={() => loginWithRedirect()}
+          >
+            LOGIN
+          </button>
+        ) : (
+          <Link to="/checkout" style={{textAlign:"center"}} className={classes.action}>
+            proceed to checkout
+          </Link>
+        )}
       </div>
     </div>
   );

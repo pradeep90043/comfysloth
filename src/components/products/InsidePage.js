@@ -8,8 +8,10 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { AddToCart } from "../../actions";
 
+
 const InsidePage = () => {
   const insideState = useSelector((state) => state.cartUpdate.currentProduct);
+  console.log(insideState);
   const dispatch = useDispatch();
   const [ quantity, setQuantity ] = useState(1)
 
@@ -66,7 +68,7 @@ const InsidePage = () => {
             <AiOutlineStar style={{ color: "#c1c11c" }} />{" "}
             <span>(100 customer reviews)</span>
           </p>
-          <p className="price" >${insideState.price}</p>
+          <p className="price" >$ {insideState.price}</p>
           <p>
             Cloud bread VHS hell of banjo bicycle rights jianbing umami
             mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher
@@ -90,8 +92,11 @@ const InsidePage = () => {
           <hr />
           <div className={classes.separate}>
             <p>Colors :</p>
-            <p>
-              <BsFillCircleFill />
+            <p  >
+              {insideState.color[0] && <BsFillCircleFill style={{color:insideState.color[0]}} />}
+              {insideState.color[1] && <BsFillCircleFill style={{color:insideState.color[1]}} />}
+              {insideState.color[2] && <BsFillCircleFill style={{color:insideState.color[2]}} />}
+
             </p>
           </div>
           <div className={classes.addRemove}>

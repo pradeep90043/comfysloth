@@ -1,0 +1,39 @@
+.header {
+  padding: 3rem;
+  background: #eaded7;
+  color: brown;
+  font-size: 1.5rem;
+}
+.header .headerProducts {
+  color: #641e1e;
+}
+.details {
+  width: 34%;
+  min-height: 40vw;
+  padding-top: 4rem;
+  margin: auto;
+
+}
+.details > * {
+  padding: 15px;
+}
+.input_btn {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 3rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+}
+.input_btn > * {
+    padding: 7px;
+}
+input{
+   border-radius:4px 4px 0 0;
+   border: 1px solid;
+
+}
+.action{
+   background-color:  rgb(84, 105, 212);
+   border: none;
+   border-radius:0 0 4px 4px ;
+}

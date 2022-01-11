@@ -8,8 +8,21 @@ import Navbar from "./components/Navbar";
 import InsidePage from "./components/products/InsidePage";
 import Products from "./components/products/Products";
 import { useAuth0 } from "@auth0/auth0-react";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import CheckoutPage from "./components/CheckoutPage";
+
+
 function App() {
   const { user } = useAuth0();
+  const cartItemsPresent = useSelector((state) => state.cartUpdate.totalPrice)
+  console.log(cartItemsPresent);
+  const emptyCartPage = <div className="emptyCartPage" >
+             <h1>Your Cart Is Empty</h1>
+             <Link to="/products">
+<button className="actionBtn" >Fill It</button>
+</Link>
+  </div>
   return (
     <div>
       <Navbar />
@@ -17,8 +30,9 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route exact path="/about" element={<About />} />
         <Route exact path="/products" element={<Products />} />
-        <Route exact path="/cart" element={<CartPage />} />
+        <Route exact path="/cart" element={ cartItemsPresent!==0 ?  <CartPage /> : emptyCartPage} />
         <Route exact path="/name" element={<InsidePage />} />
+        <Route exact path="/checkout" element={<CheckoutPage />} />
       </Routes>
       <Footer />
     </div>

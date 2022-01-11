@@ -6,7 +6,7 @@ const Footer = () => {
     <>
       <div className={classes.footter}>
         <p>
-          © 2021 <span className={classes.name}> ComfySloth </span> All rights
+          © 2022 <span className={classes.name}> ComfySloth </span> All rights
           reserved
         </p>
       </div>

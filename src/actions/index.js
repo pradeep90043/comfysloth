@@ -31,3 +31,11 @@ export const Clear = () => {
         type:"CLEAR",
     }
 }
+
+// export const FilterSliderPrice = (price) => {
+//     return{
+//         type:"FILTERPRICE",
+//         payload:price
+
+//     }
+// }
