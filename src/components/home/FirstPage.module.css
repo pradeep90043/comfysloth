@@ -34,6 +34,7 @@
 .secFirstImg {
   display: flex;
   grid-column: 2/3;
+  position: relative;
 }
 .secFirstImg .img1 {
   width: 100%;
@@ -42,6 +43,6 @@
 .secFirstImg .img2 {
   width: 258px;
   position: absolute;
-  bottom: 48px;
-  left: 433px;
+  top: 378px;
+  left: -105px;
 }

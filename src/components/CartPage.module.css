@@ -58,6 +58,12 @@
   border: none;
   border-radius: 3px;
 }
+.action:hover{
+  color: #ab7a5f;
+  background-color: rgb(231, 209, 209);
+  transition: linear 0.3s all;
+  cursor: pointer;
+}
 .carttotal {
   display: flex;
   justify-content: space-between;
@@ -79,6 +85,7 @@
   padding: 2px;
   font-size: larger;
   border-radius: 3px;
+  cursor: pointer;
 }
 .color{
 display: flex;

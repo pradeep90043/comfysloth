@@ -71,6 +71,11 @@
 .filters > * {
   margin: 15px 0;
 }
+.searchBar{
+  font-size: 16px;
+  background: #dedfdf;
+  padding: 3px;
+}
 .category > * {
   margin: 10px 0;
 }

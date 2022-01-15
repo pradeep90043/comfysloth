@@ -35,8 +35,8 @@ const AvailableItems = ({ item }) => {
             </p>
           </div>
         </div>
-        <div className={classes.price}>
-          <p>{item.price}</p>
+        <div className="price">
+          <p>$ {item.price}</p>
         </div>
         <div className={classes.quantity}>
           <span onClick={decrement}>-</span>
@@ -44,7 +44,7 @@ const AvailableItems = ({ item }) => {
           <span onClick={increment}>+</span>
         </div>
         <div className={classes.subtotal}>
-          <p className="price">$ {totalPrice.toFixed(2)}</p>
+          <p style={{color:"blue"}} >$ {totalPrice.toFixed(2)}</p>
         </div>
         <div className={classes.delete}>
           <MdDelete

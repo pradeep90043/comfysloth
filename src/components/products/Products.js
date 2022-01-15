@@ -246,6 +246,7 @@ const Products = () => {
         <div className={classes.filtersDiv}>
           <div className={classes.filters}>
             <input
+            className = {classes.searchBar}
               type="text"
               placeholder="Search"
               onChange={inputEvent}
