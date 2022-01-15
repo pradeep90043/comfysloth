@@ -8,7 +8,7 @@ import { BsFillCheckCircleFill } from "react-icons/bs";
 
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { AddToCart,  } from "../../actions";
+import { AddToCart } from "../../actions";
 
 const InsidePage = () => {
   const insideState = useSelector((state) => state.cartUpdate.currentProduct);
@@ -21,6 +21,7 @@ const InsidePage = () => {
     if (insideState.color) {
       setSelectedColor(insideState.color[0]);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   console.log(selectedProductColor, "insideState");

@@ -7,7 +7,7 @@ import { BsFillCheckCircleFill } from "react-icons/bs";
 import { AiOutlineSearch } from "react-icons/ai";
 
 import { Add } from "../../actions/index";
-import { useDispatch,} from "react-redux";
+import { useDispatch } from "react-redux";
 import dummy_data from "../../APi";
 import Slider from "../../UI/Slider";
 import { Link, NavLink } from "react-router-dom";
@@ -32,11 +32,13 @@ const Products = () => {
 
   useEffect(() => {
     genericFilterSetData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters]);
 
   useEffect(() => {
     FilterCategory("all");
     FilterColor("all");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const inputEvent = (e) => {
@@ -243,7 +245,12 @@ const Products = () => {
 
         <div className={classes.filtersDiv}>
           <div className={classes.filters}>
-            <input type="text" placeholder="Search" onChange={inputEvent} value={filters.search} />
+            <input
+              type="text"
+              placeholder="Search"
+              onChange={inputEvent}
+              value={filters.search}
+            />
             <div className={classes.category}>
               <h3>Category</h3>
               <p

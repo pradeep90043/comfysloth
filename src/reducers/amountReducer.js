@@ -89,21 +89,8 @@ const cartUpdate = (state = initialState, action) => {
       selectedColor: [],
     };
   }
-  if (action.type === "ADDINGCOLOR") {
-    const currentColor = action.payload;
-    const colors = { ...state.selectedColor, currentColor };
-    // const currentColorIndex =
-    return {
-      ...state,
-      selectedColor: colors,
-    };
-  }
-  if (action.type === "RESETSLIDER") {
-    return {
-      ...state,
-      resetSlider: action.payload,
-    };
-  }
+ 
+  
 
   return state;
 };
