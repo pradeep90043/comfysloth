@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, } from "react-router-dom";
 import Cart from "./Cart/Cart";
 import classes from "./Navbar.module.css";
 import LogInIcon from "../components/Cart/LogInIcon";
