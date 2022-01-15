@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 
 
 const CheckoutPage = () => {
-  const { loginWithRedirect, isAuthenticated, logout, user } = useAuth0();
+  const {  isAuthenticated, user } = useAuth0();
 const totalOrderPrice = useSelector((state) => state.cartUpdate.totalPrice)
 
   return (

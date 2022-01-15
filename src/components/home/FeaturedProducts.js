@@ -41,7 +41,7 @@ const FeaturedProducts = () => {
         })}
       </div>
       <Link to="/products">
-        <button className={classes.actions}>All Products</button>
+        <button className="actionBtn">All Products</button>
       </Link>
     </div>
   );

@@ -3,8 +3,11 @@ import classes from "./Products.module.css";
 import { GrAppsRounded } from "react-icons/gr";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { BsFillCircleFill } from "react-icons/bs";
+import { BsFillCheckCircleFill } from "react-icons/bs";
+import { AiOutlineSearch } from "react-icons/ai";
+
 import { Add } from "../../actions/index";
-import { useDispatch } from "react-redux";
+import { useDispatch,} from "react-redux";
 import dummy_data from "../../APi";
 import Slider from "../../UI/Slider";
 import { Link, NavLink } from "react-router-dom";
@@ -17,19 +20,24 @@ const Products = () => {
     company: "all",
     color: "all",
     shipping: "",
-    price: 3099,
+    price: 3099.99,
     sortType: "Lowest",
   };
   const [filters, setFilters] = useState(defailtFilters);
-  const [underline, setUndeline] = useState();
   const [productsInRow, setProductsInRow] = useState(false);
   const [isFreeShipping, setIsFreeShipping] = useState(false);
+  const [selectProduct, setSelectProduct] = useState();
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     genericFilterSetData();
   }, [filters]);
+
+  useEffect(() => {
+    FilterCategory("all");
+    FilterColor("all");
+  }, []);
 
   const inputEvent = (e) => {
     setFilters({ ...filters, search: e.target.value });
@@ -46,7 +54,6 @@ const Products = () => {
             filters.category.toLocaleLowerCase()
           );
         }
-
         return product;
       })
       .filter((product) => {
@@ -64,7 +71,6 @@ const Products = () => {
             filters.company.toLocaleLowerCase()
           );
         }
-
         return product;
       })
       .filter((product) => {
@@ -133,22 +139,30 @@ const Products = () => {
       <div>
         {!productsInRow ? (
           <div key={product.id}>
-            <button onClick={() => dispatch(Add(product))}>
-              <NavLink to="/name">
-                <img
-                  className={classes.images}
-                  src={product.img}
-                  alt={product.name}
-                />
-              </NavLink>
-            </button>
+            <div
+              onClick={() => dispatch(Add(product))}
+              className={classes.imgIcon}
+              onMouseEnter={() => setSelectProduct(product)}
+              onMouseLeave={() => setSelectProduct()}
+            >
+              <img
+                className={classes.images}
+                src={product.img}
+                alt={product.name}
+              />
+              {selectProduct === product && (
+                <NavLink to={`/products/${product.SKUid}`}>
+                  <AiOutlineSearch className={classes.onSelecting} />
+                </NavLink>
+              )}
+            </div>
             <div className={classes.namePrice}>
               <p>{product.name}</p>
               <p className="price">$ {product.price}</p>
             </div>
           </div>
         ) : (
-          <div className={classes.cart} key={product.id}>
+          <div className={classes.cardForm} key={product.id}>
             <img
               className={classes.images}
               src={product.img}
@@ -162,7 +176,7 @@ const Products = () => {
                 mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr
                 dreamcatcher waistcoat, authentic ...
               </p>
-              <Link to="/name">
+              <Link to={`/${product.SKUid}`}>
                 <button
                   className="actionBtn"
                   onClick={() => dispatch(Add(product))}
@@ -177,7 +191,6 @@ const Products = () => {
     );
   });
 
-
   ///////filter category////////
   const FilterCategory = (category) => {
     setFilters({ ...filters, category });
@@ -186,8 +199,7 @@ const Products = () => {
 
   ///////filter company////////
   const FilterCompany = (event) => {
-    const company = event.target.value;
-    setFilters({ ...filters, company });
+    setFilters({ ...filters, company: event.target.value });
     genericFilterSetData();
   };
 
@@ -198,7 +210,7 @@ const Products = () => {
   };
   ///////filter shipping////////
   const FilterShipping = (e) => {
-    setFilters({ ...filters, shipping: e.target.value });
+    setFilters({ ...filters, shipping: !filters.shipping });
     genericFilterSetData();
     setIsFreeShipping(!isFreeShipping);
   };
@@ -210,6 +222,11 @@ const Products = () => {
   /////// clear all filters ////////
   const ClearAllFilters = () => {
     setFilters(defailtFilters);
+    // setUndelineCategory("all");
+    // setCheckedColor("all");
+    // document.getElementById("checked").checked = false;
+    // resetSlider(3099.99);
+    // document.getElementById("company").value = "all";
   };
 
   console.log(filters, "allFilteredData");
@@ -220,65 +237,149 @@ const Products = () => {
           Home / <span className={classes.headerProducts}>Products</span>
         </h2>
       </div>
+
       <div className={classes.filtersProducts}>
         {/* Filters*/}
 
-        <div className={classes.filters}>
-          <input type="text" placeholder="Search" onChange={inputEvent} />
-          <div className={classes.category}>
-            <h3>Category</h3>
-            <p className={underline} onClick={() => FilterCategory("all")}>
-              All
+        <div className={classes.filtersDiv}>
+          <div className={classes.filters}>
+            <input type="text" placeholder="Search" onChange={inputEvent} value={filters.search} />
+            <div className={classes.category}>
+              <h3>Category</h3>
+              <p
+                className={
+                  filters.category === "all" && classes.bottomUnderline
+                }
+                onClick={() => FilterCategory("all")}
+              >
+                All
+              </p>
+              <p
+                className={
+                  filters.category === "Office" && classes.bottomUnderline
+                }
+                onClick={() => FilterCategory("Office")}
+              >
+                Office
+              </p>
+              <p
+                className={
+                  filters.category === "Living Room" && classes.bottomUnderline
+                }
+                onClick={() => FilterCategory("Living Room")}
+              >
+                Living Room
+              </p>
+              <p
+                className={
+                  filters.category === "Kitchen" && classes.bottomUnderline
+                }
+                onClick={() => FilterCategory("Kitchen")}
+              >
+                Kitchen
+              </p>
+              <p
+                className={
+                  filters.category === "Bedroom" && classes.bottomUnderline
+                }
+                onClick={() => FilterCategory("Bedroom")}
+              >
+                Bedroom
+              </p>
+              <p
+                className={
+                  filters.category === "Dinning" && classes.bottomUnderline
+                }
+                onClick={() => FilterCategory("Dinning")}
+              >
+                Dinning
+              </p>
+              <p
+                className={
+                  filters.category === "Kids" && classes.bottomUnderline
+                }
+                onClick={() => FilterCategory("Kids")}
+              >
+                Kids
+              </p>
+            </div>
+            <select
+              className={classes.company}
+              onChange={FilterCompany}
+              value={filters.company}
+            >
+              <option value="all">all</option>
+              <option value="marcos">marcos</option>
+              <option value="ikea">ikea</option>
+              <option value="liddy">liddy</option>
+              <option value="caressa">caressa</option>
+            </select>
+            <div className={classes.colors}>
+              <span
+                className={filters.color === "all" && classes.bottomUnderline}
+                onClick={() => FilterColor("all")}
+              >
+                All{" "}
+              </span>{" "}
+              {!(filters.color === "blue") ? (
+                <BsFillCircleFill
+                  style={{ color: "blue" }}
+                  onClick={() => FilterColor("blue")}
+                />
+              ) : (
+                <BsFillCheckCircleFill style={{ color: "blue" }} />
+              )}{" "}
+              {!(filters.color === "darkgoldenrod") ? (
+                <BsFillCircleFill
+                  style={{ color: "darkgoldenrod" }}
+                  onClick={() => FilterColor("darkgoldenrod")}
+                />
+              ) : (
+                <BsFillCheckCircleFill style={{ color: "darkgoldenrod" }} />
+              )}{" "}
+              {!(filters.color === "black") ? (
+                <BsFillCircleFill
+                  style={{ color: "black" }}
+                  onClick={() => FilterColor("black")}
+                />
+              ) : (
+                <BsFillCheckCircleFill style={{ color: "black" }} />
+              )}{" "}
+              {!(filters.color === "orange") ? (
+                <BsFillCircleFill
+                  style={{ color: "orange" }}
+                  onClick={() => FilterColor("orange")}
+                />
+              ) : (
+                <BsFillCheckCircleFill style={{ color: "orange" }} />
+              )}{" "}
+              {!(filters.color === "green") ? (
+                <BsFillCircleFill
+                  style={{ color: "green" }}
+                  onClick={() => FilterColor("green")}
+                />
+              ) : (
+                <BsFillCheckCircleFill style={{ color: "green" }} />
+              )}{" "}
+            </div>
+            <div className={classes.prices}>
+              <Slider FilterPrice={FilterPrice} price={filters.price} />
+            </div>
+            <p>
+              Free Shipping{" "}
+              <span>
+                <input
+                  type="checkbox"
+                  onChange={FilterShipping}
+                  id="checked"
+                  checked={filters.shipping}
+                />{" "}
+              </span>{" "}
             </p>
-            <p onClick={() => FilterCategory("office")}>Office</p>
-            <p onClick={() => FilterCategory("Living Room")}>Living Room</p>
-            <p onClick={() => FilterCategory("Kitchen")}>Kitchen</p>
-            <p onClick={() => FilterCategory("Bedroom")}>Bedroom</p>
-            <p onClick={() => FilterCategory("Dinning")}>Dinning</p>
-            <p onClick={() => FilterCategory("Kids")}>Kids</p>
+            <button className={classes.clearbtn} onClick={ClearAllFilters}>
+              Clear Filters
+            </button>
           </div>
-          <select className={classes.company} onChange={FilterCompany}>
-            <option value="all">all</option>
-            <option value="marcos">marcos</option>
-            <option value="ikea">ikea</option>
-            <option value="liddy">liddy</option>
-            <option value="caressa">caressa</option>
-          </select>
-          <div className={classes.colors}>
-            <span onClick={() => FilterColor("all")}>All </span>{" "}
-            <BsFillCircleFill
-              style={{ color: "blue" }}
-              onClick={() => FilterColor("blue")}
-            />{" "}
-            <BsFillCircleFill
-              style={{ color: "yellow" }}
-              onClick={() => FilterColor("yellow")}
-            />{" "}
-            <BsFillCircleFill
-              style={{ color: "green" }}
-              onClick={() => FilterColor("green")}
-            />{" "}
-            <BsFillCircleFill
-              style={{ color: "black" }}
-              onClick={() => FilterColor("black")}
-            />{" "}
-            <BsFillCircleFill
-              style={{ color: "orange" }}
-              onClick={() => FilterColor("orange")}
-            />
-          </div>
-          <div className={classes.prices}>
-            <Slider FilterPrice={FilterPrice} />
-          </div>
-          <p>
-            Free Shipping{" "}
-            <span>
-              <input type="checkbox" onChange={FilterShipping} />{" "}
-            </span>{" "}
-          </p>
-          <button className={classes.clearbtn} onClick={ClearAllFilters}>
-            Clear Filters
-          </button>
         </div>
 
         {/* header sortings */}

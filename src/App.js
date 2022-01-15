@@ -15,8 +15,9 @@ import CheckoutPage from "./components/CheckoutPage";
 
 function App() {
   const { user } = useAuth0();
-  const cartItemsPresent = useSelector((state) => state.cartUpdate.totalPrice)
-  console.log(cartItemsPresent);
+  const totalPrice = useSelector((state) => state.cartUpdate.totalPrice )
+  const currentProduct = useSelector((state) => state.cartUpdate.currentProduct.SKUid)
+  console.log(currentProduct);
   const emptyCartPage = <div className="emptyCartPage" >
              <h1>Your Cart Is Empty</h1>
              <Link to="/products">
@@ -30,8 +31,8 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route exact path="/about" element={<About />} />
         <Route exact path="/products" element={<Products />} />
-        <Route exact path="/cart" element={ cartItemsPresent!==0 ?  <CartPage /> : emptyCartPage} />
-        <Route exact path="/name" element={<InsidePage />} />
+        <Route exact path="/cart" element={ totalPrice!==0 ?  <CartPage /> : emptyCartPage} />
+        <Route exact path= {`/products/${currentProduct}`} element={<InsidePage />} />
         <Route exact path="/checkout" element={<CheckoutPage />} />
       </Routes>
       <Footer />

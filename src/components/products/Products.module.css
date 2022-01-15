@@ -38,34 +38,63 @@
   object-fit: cover;
   height: 208px;
 }
+.imgIcon {
+  position: relative;
+}
+
+.imgIcon:hover {
+  filter: brightness(50%);
+  transition: all 0.3s linear;
+}
+.onSelecting {
+  position: absolute;
+  top: 41%;
+  left: 43%;
+  font-size: 2.4rem;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 50%;
+  padding: 4px;
+}
 .namePrice {
   display: flex;
   justify-content: space-between;
+  width: 278px;
 }
 .price {
   color: rgb(160, 89, 77);
 }
-.filters > *{
+.filters {
+  position: sticky;
+  top: 0;
+}
+.filters > * {
   margin: 15px 0;
 }
-.category > *{
+.category > * {
   margin: 10px 0;
-
 }
-.category :hover{
+.category :hover {
   color: #0a365a;
   cursor: pointer;
-  font-size: 1.05rem;
 }
-.category :visited{
+.category :visited {
   text-decoration: underline;
 }
-.cart{
-  display: flex;
+.cardForm {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
   gap: 1.4rem;
-  margin-bottom:1.3rem ;
+  margin-bottom: 1.3rem;
+}
+.cardForm .images:hover {
+  filter: none;
+  transition: none;
 }
 .about > * {
-  margin-bottom:1rem ;
-
+  margin-bottom: 1rem;
+}
+.bottomUnderline {
+  border-bottom: 1px solid;
+  width: 30%;
 }

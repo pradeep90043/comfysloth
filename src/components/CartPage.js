@@ -7,7 +7,7 @@ import { Clear } from "../actions/index";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const CartPage = () => {
-  const { loginWithRedirect, isAuthenticated, logout, user } = useAuth0();
+  const { loginWithRedirect, isAuthenticated,  } = useAuth0();
   const dispatch = useDispatch();
   const cartState = useSelector((state) => state.cartUpdate.cartItems);
   console.log(cartState);
@@ -29,8 +29,8 @@ const CartPage = () => {
         </div>
         <hr />
       </div>
-      {cartState.map((item) => {
-        return <AvailableItems item={item} key={item.id} />;
+      {cartState.map((item , index) => {
+        return <AvailableItems item={item} key={item.id} index={index} />;
       })}
       <hr />
       <div className={classes.actions}>

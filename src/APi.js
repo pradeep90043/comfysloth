@@ -8,6 +8,7 @@ const dummy_data = [
     company: "marcos",
     freeShipping: true,
     category: "Kitchen",
+    SKUid: "p1RecQ0fMd8T0Vk21",
   },
   {
     id: "p2",
@@ -18,6 +19,7 @@ const dummy_data = [
     company: "marcos",
     freeShipping: true,
     category: "Office",
+    SKUid: "p2RecQ0fMd8T0Vk21",
   },
   {
     id: "p3",
@@ -28,6 +30,7 @@ const dummy_data = [
     company: "ikea",
     freeShipping: false,
     category: "Bedroom",
+    SKUid: "p3RecQ0fMd8T0Vk21",
   },
   {
     id: "p4",
@@ -38,16 +41,18 @@ const dummy_data = [
     company: "marcos",
     freeShipping: true,
     category: "Bedroom",
+    SKUid: "p4RecQ0fMd8T0Vk21",
   },
   {
     id: "p5",
     img: "https://dl.airtable.com/.attachmentThumbnails/a6119fabf7256049cc0e8dbcdf536c9c/b0153f66    ",
     name: "Bar Stool",
     price: 40.99,
-    color: ["yellow", "blue"],
+    color: ["darkgoldenrod", "blue"],
     company: "marcos",
     freeShipping: true,
     category: "Kitchen",
+    SKUid: "p5RecQ0fMd8T0Vk21",
   },
   {
     id: "p6",
@@ -58,16 +63,18 @@ const dummy_data = [
     company: "liddy",
     freeShipping: true,
     category: "Bedroom",
+    SKUid: "p6RecQ0fMd8T0Vk21",
   },
   {
     id: "p7",
     img: "https://dl.airtable.com/.attachmentThumbnails/1cf03bfcee117bd92273d996a82a1534/47ef57c7    ",
     name: "Suede Armchair",
     price: 159.99,
-    color: ["yellow"],
+    color: ["darkgoldenrod"],
     company: "liddy",
     freeShipping: false,
     category: "Office",
+    SKUid: "p7RecQ0fMd8T0Vk21",
   },
   {
     id: "p8",
@@ -78,16 +85,18 @@ const dummy_data = [
     company: "liddy",
     freeShipping: false,
     category: "Bedroom",
+    SKUid: "p8RecQ0fMd8T0Vk21",
   },
   {
     id: "p9",
     img: "https://dl.airtable.com/.attachmentThumbnails/0446e84c5bca9643de3452a61b2d6195/1b32f48b    ",
     name: "Emperor Bed",
     price: 239.99,
-    color: ["blue", "yellow"],
+    color: ["blue", "darkgoldenrod"],
     company: "liddy",
     freeShipping: false,
     category: "Kids",
+    SKUid: "p9RecQ0fMd8T0Vk21",
   },
   {
     id: "p10",
@@ -98,6 +107,7 @@ const dummy_data = [
     company: "marcos",
     freeShipping: true,
     category: "Office",
+    SKUid: "p10RecQ0fMd8T0Vk21",
   },
   {
     id: "p11",
@@ -108,6 +118,7 @@ const dummy_data = [
     company: "liddy",
     freeShipping: true,
     category: "Kids",
+    SKUid: "p11RecQ0fMd8T0Vk21",
   },
   {
     id: "p12",
@@ -118,6 +129,7 @@ const dummy_data = [
     company: "liddy",
     freeShipping: true,
     category: "Office",
+    SKUid: "p12RecQ0fMd8T0Vk21",
   },
 
   {
@@ -125,10 +137,11 @@ const dummy_data = [
     img: "https://dl.airtable.com/.attachmentThumbnails/7a38cf782907773d9900165530cfa583/d9f41960    ",
     name: "Dining Table",
     price: 429.99,
-    color: ["green", "yellow"],
+    color: ["green", "darkgoldenrod"],
     company: "ikea",
     freeShipping: false,
     category: "Kids",
+    SKUid: "p13RecQ0fMd8T0Vk21",
   },
   {
     id: "p14",
@@ -139,6 +152,7 @@ const dummy_data = [
     company: "liddy",
     freeShipping: false,
     category: "Living Room",
+    SKUid: "p14RecQ0fMd8T0Vk21",
   },
   {
     id: "p15",
@@ -149,16 +163,18 @@ const dummy_data = [
     company: "ikea",
     freeShipping: "",
     category: "Dinning",
+    SKUid: "p15RecQ0fMd8T0Vk21",
   },
   {
     id: "p16",
     img: "https://dl.airtable.com/.attachmentThumbnails/0be1af59cf889899b5c9abb1e4db38a4/d631ac52    ",
     name: "Albany Sectional",
     price: 1099.99,
-    color: ["yellow", "blue"],
+    color: ["darkgoldenrod", "blue"],
     company: "",
     freeShipping: true,
     category: "Dinnig",
+    SKUid: "p16RecQ0fMd8T0Vk21",
   },
   {
     id: "p17",
@@ -169,6 +185,7 @@ const dummy_data = [
     company: "liddy",
     freeShipping: false,
     category: "Living Room",
+    SKUid: "p17RecQ0fMd8T0Vk21",
   },
   {
     id: "p18",
@@ -179,6 +196,7 @@ const dummy_data = [
     company: "ikea",
     freeShipping: false,
     category: "Office",
+    SKUid: "p18RecQ0fMd8T0Vk21",
   },
   {
     id: "p19",
@@ -189,6 +207,7 @@ const dummy_data = [
     company: "ikea",
     freeShipping: false,
     category: "Kitchen",
+    SKUid: "p19RecQ0fMd8T0Vk21",
   },
 
   {
@@ -196,10 +215,11 @@ const dummy_data = [
     img: "https://dl.airtable.com/.attachmentThumbnails/e3fa7aa6dc112c4998da18bb401bd70f/61e2fb5e    ",
     name: "Wooden Desk",
     price: 1509.99,
-    color: ["blue", "yellow"],
+    color: ["blue", "darkgoldenrod"],
     company: "ikea",
     freeShipping: false,
     category: "Kitchen",
+    SKUid: "p20RecQ0fMd8T0Vk21",
   },
   {
     id: "p21",
@@ -210,6 +230,7 @@ const dummy_data = [
     company: "ikea",
     freeShipping: false,
     category: "Kitchen",
+    SKUid: "p21RecQ0fMd8T0Vk21",
   },
   {
     id: "p22",
@@ -220,6 +241,7 @@ const dummy_data = [
     company: "ikea",
     freeShipping: false,
     category: "Bedroom",
+    SKUid: "p22RecQ0fMd8T0Vk21",
   },
   {
     id: "p23",
@@ -230,6 +252,7 @@ const dummy_data = [
     company: "caressa",
     freeShipping: true,
     category: "Bedroom",
+    SKUid: "p23RecQ0fMd8T0Vk21",
   },
 ];
 export default dummy_data;

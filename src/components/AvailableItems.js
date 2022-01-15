@@ -1,29 +1,27 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import classes from "./CartPage.module.css";
 import { BsSquareFill } from "react-icons/bs";
 import { MdDelete } from "react-icons/md";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { AddToCart } from "../actions";
 import { Remove } from "../actions";
 
-
 const AvailableItems = ({ item }) => {
   const [quantity, setQuantity] = useState(item.quantity);
-  const totalPrice = item.price * quantity
-  const dispatch = useDispatch()
-
+  const totalPrice = item.price * quantity;
+  const dispatch = useDispatch();
+  const selectedColor = useSelector((state) => state.cartUpdate.selectedColor);
+  console.log(selectedColor);
 
   const increment = () => {
-    setQuantity(quantity+1)
-dispatch(AddToCart({...item, quantity:1}))
-
-  }
+    setQuantity(quantity + 1);
+    dispatch(AddToCart({ ...item, quantity: 1 }));
+  };
   const decrement = () => {
-    setQuantity(quantity-1)
-dispatch(AddToCart({...item, quantity: -1}))
-
-  }
-
+    setQuantity(quantity - 1);
+    dispatch(AddToCart({ ...item, quantity: -1 }));
+  };
+  console.log(item);
   return (
     <>
       <div className={classes.items}>
@@ -31,8 +29,9 @@ dispatch(AddToCart({...item, quantity: -1}))
           <img src={item.img} alt={item.name} />
           <div className={classes.nameColor}>
             <p>{item.name}</p>
-            <p className={classes.color} >
-              Color : <BsSquareFill style={{ color: item.color }} />{" "}
+            <p className={classes.color}>
+              Color :{" "}
+              <BsSquareFill style={{ color: item.selectedProductColor }} />{" "}
             </p>
           </div>
         </div>
@@ -48,7 +47,10 @@ dispatch(AddToCart({...item, quantity: -1}))
           <p className="price">$ {totalPrice.toFixed(2)}</p>
         </div>
         <div className={classes.delete}>
-          <MdDelete className={classes.deleteBtn}  onClick={()=>dispatch(Remove(item.id))} />
+          <MdDelete
+            className={classes.deleteBtn}
+            onClick={() => dispatch(Remove(item.id))}
+          />
         </div>
       </div>
     </>

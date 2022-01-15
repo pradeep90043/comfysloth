@@ -3,6 +3,8 @@ const initialState = {
   currentProduct: {},
   totalPrice: 0,
   totalQuantity: 0,
+  selectedColor: [],
+  resetSlider:""
 };
 const cartUpdate = (state = initialState, action) => {
   if (action.type === "ADD") {
@@ -79,17 +81,29 @@ const cartUpdate = (state = initialState, action) => {
   }
   if (action.type === "CLEAR") {
     return {
+      ...state,
       cartItems: [],
       currentProduct: {},
       totalPrice: 0,
       totalQuantity: 0,
+      selectedColor: [],
     };
   }
-  // if(action.type === "FILTERPRICE"){
-  //   return{
-  //     ...state
-  //   }
-  // }
+  if (action.type === "ADDINGCOLOR") {
+    const currentColor = action.payload;
+    const colors = { ...state.selectedColor, currentColor };
+    // const currentColorIndex =
+    return {
+      ...state,
+      selectedColor: colors,
+    };
+  }
+  if (action.type === "RESETSLIDER") {
+    return {
+      ...state,
+      resetSlider: action.payload,
+    };
+  }
 
   return state;
 };

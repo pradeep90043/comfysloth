@@ -31,6 +31,18 @@ export const Clear = () => {
         type:"CLEAR",
     }
 }
+export const selectedColor = (color) => {
+    return{
+        type:"ADDINGCOLOR",
+        payload:color
+    }
+}
+export const resetSlider = (onChange) => {
+    return{
+        type:"RESETSLIDER",
+        payload:onChange
+    }
+}
 
 // export const FilterSliderPrice = (price) => {
 //     return{

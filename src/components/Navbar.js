@@ -10,16 +10,17 @@ import { RiLogoutBoxRFill } from "react-icons/ri";
 const Navbar = () => {
   const { loginWithRedirect , isAuthenticated ,logout} = useAuth0();
 
+
   console.log("hello");
   return (
     <nav className={classes.nav}>
       <div className={classes.main}>
-        <NavLink to="/" className={classes.logo}>
+        <Link to="/" className={classes.logo}>
           <img
             src="https://react-course-comfy-sloth-store.netlify.app/static/media/logo.221f6b13.svg"
             alt="logo"
           />
-        </NavLink>
+        </Link>
         <div className={classes.pageLinks}>
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>

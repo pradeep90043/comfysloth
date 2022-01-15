@@ -40,6 +40,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  text-decoration: none;
+
+}
+.pageLinks > *:hover {
+  border-bottom: 1px solid;
+
 }
 .cart {
   align-items: center;
@@ -54,4 +60,8 @@
 .logIn:hover{
   color: aqua;
   cursor: pointer;
+}
+link{
+}
+link:hover{
 }

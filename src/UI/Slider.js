@@ -1,29 +1,21 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import classes from "./Slider.module.css";
+import { resetSlider } from "../actions";
 
-export default function App(props) {
-  const [value, onChange] = useState(3099.99);
-
-  useEffect(() => {
-    const ele = document.querySelector(".buble");
-    if (ele) {
-      ele.style.left = `${Number(value / 4)}px`;
-    }
-  });
-  console.log(value);
-  useEffect(() => props.FilterPrice(value), [value]);
-
+export default function App({ FilterPrice, price }) {
   return (
     <div className={classes.sliderParent}>
-      <div className={classes.buble}>$ {value}</div>
+      <div className={classes.buble}>$ {price}</div>
       <br />
       <input
+        id="slider"
         type="range"
         min="1"
         max="3099.99"
-        value={value}
+        value={price}
         onChange={({ target: { value: radius } }) => {
-          onChange(radius);
+          FilterPrice(radius);
         }}
       />
     </div>

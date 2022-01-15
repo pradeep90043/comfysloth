@@ -1,20 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import classes from "./InsidePage.module.css";
 import { AiFillStar } from "react-icons/ai";
 import { AiOutlineStar } from "react-icons/ai";
 import { FaStarHalfAlt } from "react-icons/fa";
 import { BsFillCircleFill } from "react-icons/bs";
+import { BsFillCheckCircleFill } from "react-icons/bs";
+
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { AddToCart } from "../../actions";
-
+import { AddToCart, selectedColor } from "../../actions";
 
 const InsidePage = () => {
   const insideState = useSelector((state) => state.cartUpdate.currentProduct);
   console.log(insideState);
   const dispatch = useDispatch();
-  const [ quantity, setQuantity ] = useState(1)
+  const [quantity, setQuantity] = useState(1);
+  const [selectedProductColor, setSelectedColor] = useState("");
 
+  useEffect(() => {
+    if (insideState.color) {
+      setSelectedColor(insideState.color[0]);
+    }
+  }, []);
+
+  console.log(selectedProductColor, "insideState");
   return (
     <div>
       <div className={classes.header}>
@@ -68,7 +77,7 @@ const InsidePage = () => {
             <AiOutlineStar style={{ color: "#c1c11c" }} />{" "}
             <span>(100 customer reviews)</span>
           </p>
-          <p className="price" >$ {insideState.price}</p>
+          <p className="price">$ {insideState.price}</p>
           <p>
             Cloud bread VHS hell of banjo bicycle rights jianbing umami
             mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher
@@ -87,27 +96,51 @@ const InsidePage = () => {
           </div>
           <div className={classes.separate}>
             <p>Brand :</p>
-            <p>Liddy</p>
+            <p>{insideState.company}</p>
           </div>
           <hr />
           <div className={classes.separate}>
             <p>Colors :</p>
-            <p  >
-              {insideState.color[0] && <BsFillCircleFill style={{color:insideState.color[0]}} />}
-              {insideState.color[1] && <BsFillCircleFill style={{color:insideState.color[1]}} />}
-              {insideState.color[2] && <BsFillCircleFill style={{color:insideState.color[2]}} />}
-
+            <p>
+              {insideState.color?.map((col) =>
+                selectedProductColor === col ? (
+                  <BsFillCheckCircleFill
+                    style={{ color: col, margin: "3px" }}
+                    key={Math.random.toString()}
+                  />
+                ) : (
+                  <BsFillCircleFill
+                    onClick={() => setSelectedColor(col)}
+                    style={{ color: col, margin: "3px" }}
+                    key={Math.random.toString()}
+                  />
+                )
+              )}
             </p>
           </div>
           <div className={classes.addRemove}>
-            <button className={classes.change} onClick={()=>setQuantity(quantity-1)} >-</button>
+            <span
+              className={classes.change}
+              onClick={() => setQuantity(quantity - 1)}
+            >
+              -
+            </span>
             <span className={classes.amount}>{quantity}</span>
-            <button className={classes.change} onClick={()=>setQuantity(quantity+1)} >+</button>
+            <span
+              className={classes.change}
+              onClick={() => setQuantity(quantity + 1)}
+            >
+              +
+            </span>
           </div>
           <Link to="/cart">
             <button
               className="actionBtn"
-              onClick={() => dispatch(AddToCart({...insideState, quantity}))}
+              onClick={() =>
+                dispatch(
+                  AddToCart({ ...insideState, quantity, selectedProductColor })
+                )
+              }
             >
               ADD TO CART
             </button>

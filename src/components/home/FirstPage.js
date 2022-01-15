@@ -15,7 +15,7 @@ const FirstPage = () => {
             quis alias?
           </p>
           <Link to="/products">
-            <button className={classes.actions}>SHOP NOW</button>
+            <button className="actionBtn">SHOP NOW</button>
           </Link>
         </div>
         <div className={classes.secFirstImg}>

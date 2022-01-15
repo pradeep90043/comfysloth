@@ -5,6 +5,12 @@
   border: none;
   border-radius: 3px;
 }
+.actionBtn:hover{
+  background-color: rgb(230, 213, 213);
+  color: #ab7a5f;
+  transition:  linear all 0.3s;
+  cursor: pointer;
+}
 .price{
   color: rgb(160, 89, 77);
 }
@@ -17,4 +23,7 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+img{
+  border-radius: 10px;
 }
