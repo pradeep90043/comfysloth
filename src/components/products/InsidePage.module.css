@@ -18,6 +18,9 @@
   padding: 2px;
   border-radius: 6px;
 }
+.smallImg{
+  border: 1px solid blue;
+}
 .goBack {
   margin: 3rem 2%;
 }

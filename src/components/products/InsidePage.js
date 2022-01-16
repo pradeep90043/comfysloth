@@ -16,6 +16,7 @@ const InsidePage = () => {
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(1);
   const [selectedProductColor, setSelectedColor] = useState("");
+  const [mainImg, setMainImg] = useState(insideState.img);
 
   useEffect(() => {
     if (insideState.color) {
@@ -23,7 +24,15 @@ const InsidePage = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
+  const image1 = insideState.img;
+  const image2 =
+    "	https://dl.airtable.com/.attachments/f15406a7d5734462ccbe033523ab44f2/36f645ba/extra-1.jpeg";
+  const image3 =
+    "https://dl.airtable.com/.attachments/7a2335390d5403fa6f30e5da7c529a1a/8074a08a/extra-2.jpeg";
+  const image4 =
+    "https://dl.airtable.com/.attachments/f026e088c27b48e3d0333c1bb2f89875/8323e097/extra-3.jpeg";
+  const image5 =
+    "	https://dl.airtable.com/.attachments/e789790777f02ec1068c6e12a31b9b8d/9f9968d0/extra-4.jpeg";
   console.log(selectedProductColor, "insideState");
   return (
     <div>
@@ -44,27 +53,40 @@ const InsidePage = () => {
       <div className={classes.imgDescription}>
         <div className={classes.images}>
           <img
-            src={insideState.img}
+            src={mainImg}
             alt={insideState.name}
             className={classes.mainImg}
           />
           <div className={classes.smallImgs}>
-            <img src={insideState.img} alt={insideState.name} />
             <img
-              src="	https://dl.airtable.com/.attachments/f15406a7d5734462ccbe033523ab44f2/36f645ba/extra-1.jpeg"
-              alt="name"
+              src={image1}
+              alt={insideState.name}
+              onClick={() => setMainImg(image1)}
+              className={mainImg === image1 && classes.smallImg}
             />
             <img
-              src="https://dl.airtable.com/.attachments/7a2335390d5403fa6f30e5da7c529a1a/8074a08a/extra-2.jpeg"
-              alt="name"
+              src={image2}
+              alt="img2"
+              onClick={() => setMainImg(image2)}
+              className={mainImg === image2 && classes.smallImg}
             />
             <img
-              src="https://dl.airtable.com/.attachments/f026e088c27b48e3d0333c1bb2f89875/8323e097/extra-3.jpeg"
-              alt="name"
+              src={image3}
+              alt="img3"
+              onClick={() => setMainImg(image3)}
+              className={mainImg === image3 && classes.smallImg}
             />
             <img
-              src="	https://dl.airtable.com/.attachments/e789790777f02ec1068c6e12a31b9b8d/9f9968d0/extra-4.jpeg"
-              alt="name"
+              src={image4}
+              alt="img4"
+              onClick={() => setMainImg(image4)}
+              className={mainImg === image4 && classes.smallImg}
+            />
+            <img
+              src={image5}
+              alt="img5"
+              onClick={() => setMainImg(image5)}
+              className={mainImg === image5 && classes.smallImg}
             />
           </div>
         </div>
