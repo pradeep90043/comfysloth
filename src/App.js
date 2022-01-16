@@ -44,7 +44,7 @@ function App() {
         />
         <Route exact path="/checkout" element={<CheckoutPage />} />
       </Routes>
-      <Footer />
+      <Footer className="footer" />
     </div>
   );
 }
