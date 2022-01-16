@@ -384,7 +384,7 @@ const Products = () => {
                 />{" "}
               </span>{" "}
             </p>
-            <button className={classes.clearbtn} onClick={ClearAllFilters}>
+            <button className={classes.clearBtn} onClick={ClearAllFilters}>
               Clear Filters
             </button>
           </div>

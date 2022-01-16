@@ -71,7 +71,7 @@
 .filters > * {
   margin: 15px 0;
 }
-.searchBar{
+.searchBar {
   font-size: 16px;
   background: #dedfdf;
   padding: 3px;
@@ -85,6 +85,14 @@
 }
 .category :visited {
   text-decoration: underline;
+}
+.colors{
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+}
+.colors:hover{
+  cursor: pointer;
 }
 .cardForm {
   display: grid;
@@ -102,4 +110,17 @@
 .bottomUnderline {
   border-bottom: 1px solid;
   width: 30%;
+}
+.clearBtn {
+  padding: 5px;
+  background-color: #0a365a;
+  border-radius: 5px;
+  color: white;
+  border: none;
+}
+.clearBtn:hover{
+  transition: linear all 0.4s;
+  color: #0a365a;
+  background-color: #eaded7;
+  cursor: pointer;
 }
