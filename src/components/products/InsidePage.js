@@ -93,7 +93,7 @@ const InsidePage = () => {
           </div>
           <div className={classes.separate}>
             <p>SKU :</p>
-            <p>RecQ0fMd8T0Vk211E</p>
+            <p>{insideState.SKUid}</p>
           </div>
           <div className={classes.separate}>
             <p>Brand :</p>
